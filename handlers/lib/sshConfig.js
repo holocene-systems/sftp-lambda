@@ -9,6 +9,7 @@ module.exports.getSSHConfig = () => {
     password: getEnv("SFTP_PASSWORD", ["SFTP_PRIVATE_KEY"]),
     privateKey: getEnv("SFTP_PRIVATE_KEY", ["SFTP_PASSWORD"]),
     reconnect: false, // setting this to true only confuses the overall timeout requirements
+    algorithms: {kex: ['diffie-hellman-group14-sha256']},
     readyTimeout: getEnv("SFTP_SSH_READY_TIMEOUT_SECONDS") * 1000 // milliseconds, the timeout for initial ssh connection
     // reconnectTries: 3,
     // reconnectDelay: 2000
