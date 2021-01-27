@@ -43,8 +43,6 @@ const pullFile = async fileContext => {
 
   const fileData = await sftp.readFile(filepath);
 
-  console.log(`file contents = ${fileData}`);
-
   // construct the target S3 key:
   // add custom prefix and delete initial top level directory
   const regexp = new RegExp(`^${topPath}`);
